@@ -8,7 +8,7 @@ I'm a beginner at Raspberry Pi tinkering, so this project is aimed at newbies an
 
 Note about the 2.13-inch Waveshare eink/epaper screen: My device was flickering and gave me the "busy" signal when I ran the test file, but then I placed both the epd2in13_V4.py and epdconfig.py files in the same folder, which solved the problem for me. Many people have reported similar issues, thinking their device was a dud when it was a file location/version issue on the Waveshare end (which is not uncommon, according to the forums I read).
 
-This project aims for simplicity. Once it's set up, it just plug and go! The Quote Machine will load a new daily quote, joke, or whatever you want from the quotes.json file. The screen will then go to sleep and update again when you choose the next day. The awesome thing about eInk technology is that it's like an Etch-a-Sketch; the words will remain on the screen until refreshed and generally use very little power.
+This project aims for simplicity. Once it's set up, it just plug and go! The Quote Machine will load a new daily quote, joke, or whatever text you want from the quotes.json file. The screen will then sleep and update again the next day at a time that you choose. The awesome thing about eInk technology is that it's like an Etch-a-Sketch; the words will remain on the screen until refreshed and uses very little power.
 
 ## Hardware I'm Using
 
