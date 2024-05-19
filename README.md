@@ -10,8 +10,6 @@ Note about the 2.13-inch Waveshare eink/epaper screen: My device was flickering 
 
 This project aims for simplicity. Once it's set up, it just plug and go! The Quote Machine will load a new daily quote, joke, or whatever you want from the quotes.json file. The screen will then go to sleep and update again when you choose the next day. The awesome thing about eInk technology is that it's like an Etch-a-Sketch; the words will remain on the screen until refreshed and generally use very little power.
 
-
-
 ## Hardware I'm Using
 
 - Raspberry Pi Zero 2W
