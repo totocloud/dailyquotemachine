@@ -1,5 +1,7 @@
 # Daily Quote Machine with Raspberry Pi
 
+![pi quote machine](https://github.com/totocloud/dailyquotemachine/blob/0eb85a4e08da129583b6d5d084836053f889fa93/quote-machine-in-action.JPG)
+
 Get your dose of inspiration with the Daily Quote Machine! Display a fun or inspiring daily quote, joke, or word-of-the-day on a 2.13" Waveshare eInk screen with a Raspberry Pi Zero.
 
 I'm a beginner at Raspberry Pi tinkering, so this project is aimed at newbies and for my learning. The goal for this project was to display a quote or joke on an eInk screen. I used a 2.13-inch Waveshare eInk screen. Pay attention to the sticker on your version and get the correct drivers from Waveshare. 
@@ -8,7 +10,7 @@ Note about the 2.13-inch Waveshare eink/epaper screen: My device was flickering 
 
 This project aims for simplicity. Once it's set up, it just plug and go! The Quote Machine will load a new daily quote, joke, or whatever you want from the quotes.json file. The screen will then go to sleep and update again when you choose the next day. The awesome thing about eInk technology is that it's like an Etch-a-Sketch; the words will remain on the screen until refreshed and generally use very little power.
 
-![pi quote machine](https://github.com/totocloud/dailyquotemachine/blob/0eb85a4e08da129583b6d5d084836053f889fa93/quote-machine-in-action.JPG)
+
 
 ## Hardware I'm Using
 
