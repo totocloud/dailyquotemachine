@@ -6,7 +6,7 @@ I'm a very beginner Raspberry Pi tinkerer, so this project is aimed at newbies a
 
 This project aims for simplicity. Once it's set up, it just plug-and-go! The Quote Machine will load a new daily quote, joke, or whatever you want from the quotes.json file. The screen will then go to sleep and update again at the time of your choosing the next day. The awesome thing about eInk technology is that it's like an Etch-a-Sketch; the words will remain on the screen until refreshed and use very little power in general.
 
-![Place Quote Machine Picture Here](path/to/your/image.png)
+![Place Quote Machine Picture Here](dailyquotemachine/quote machine in action.JPG)
 
 ## Hardware I'm Using
 
