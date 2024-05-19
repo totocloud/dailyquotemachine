@@ -2,46 +2,58 @@
 
 Get your dose of inspiration with the Daily Quote Machine! Display a fun or inspiring daily quote, joke, or word-of-the-day on a 2.13" Waveshare eInk screen with a Raspberry Pi Zero.
 
-I'm a very beginner Raspberry Pi tinkerer, so this project is aimed at newbies and for my own learning. The goal for this project was to display a quote or joke on an eInk screen. I used a 2.13-inch Waveshare eInk screen. Pay attention to the sticker on your version and get the correct drivers from Waveshare. My device was flickering and gave me the "busy" signal, but I placed both the epd2in13_V4.py and epdconfig.py file in the same folder and it solved the problem for me. Many people have reported similar issues thinking their device was a dud, when it was a file/version issue on the Waveshare end.
+I'm a beginner at Raspberry Pi tinkering, so this project is aimed at newbies and for my learning. The goal for this project was to display a quote or joke on an eInk screen. I used a 2.13-inch Waveshare eInk screen. Pay attention to the sticker on your version and get the correct drivers from Waveshare. 
 
-This project aims for simplicity. Once it's set up, it just plug-and-go! The Quote Machine will load a new daily quote, joke, or whatever you want from the quotes.json file. The screen will then go to sleep and update again at the time of your choosing the next day. The awesome thing about eInk technology is that it's like an Etch-a-Sketch; the words will remain on the screen until refreshed and use very little power in general.
+Note about the 2.13-inch Waveshare eink/epaper screen: My device was flickering and gave me the "busy" signal when I ran the test file, but then I placed both the epd2in13_V4.py and epdconfig.py files in the same folder, which solved the problem for me. Many people have reported similar issues, thinking their device was a dud when it was a file location/version issue on the Waveshare end (which is not uncommon, according to the forums I read).
 
-![Place Quote Machine Picture Here](https://github.com/totocloud/dailyquotemachine/quote machine in action.JPG)
+This project aims for simplicity. Once it's set up, it just plug and go! The Quote Machine will load a new daily quote, joke, or whatever you want from the quotes.json file. The screen will then go to sleep and update again when you choose the next day. The awesome thing about eInk technology is that it's like an Etch-a-Sketch; the words will remain on the screen until refreshed and generally use very little power.
+
+![pi quote machine](https://github.com/totocloud/dailyquotemachine/blob/0eb85a4e08da129583b6d5d084836053f889fa93/quote-machine-in-action.JPG)
 
 ## Hardware I'm Using
 
 - Raspberry Pi Zero 2W
-- Waveshare 2.13 inch e-ink display (epd2in13_V4 - check the sticker on yours)
+- Waveshare 2.13 inch e-ink HAT display (epd2in13_V4 - check the sticker on yours)
 - Micro SD card
 - Power for your Pi Zero
 
 ## Setup Instructions
 
-### 1. Run The Raspberry Pi Imager
+### 1. Installing the Waveshare eInk HAT
+To install the Waveshare eInk HAT on your Raspberry Pi Zero, follow these steps:
+
+Align the Pins: Carefully align the 40-pin GPIO connector of the HAT with the GPIO pins on the Raspberry Pi. Ensure that the pin 1 (usually marked with a square solder pad or a white dot) on the HAT matches pin 1 on the Raspberry Pi's GPIO header.
+
+Attach the HAT: Gently press the HAT down onto the GPIO pins until it is securely connected. The eInk display should be facing outward, with the screen visible and the HAT's components seated firmly on the Raspberry Pi. The display connectors should be aligned with the screen and not upside down. I made that mistake when I couldn't figure out the driver issue, and things got a bit "smokey," but fortunately, nothing was damaged.
+
+Secure the HAT: Ensure the HAT is firmly attached and all pins are properly connected. This helps prevent any loose connections that might cause issues.
+
+### 2. Run The Raspberry Pi Imager
 
 Download and run the Raspberry Pi Imager from [here](https://www.raspberrypi.com/software/).
 
-- Use the no-desktop version of the most recent version of the Pi OS. The Pi Zero 2W is very constrained for memory. You may have reliability issues with the display driver if you use a desktop OS.
+Use the most recent version of the Pi OS without a desktop. The Pi Zero 2W is very memory-constrained, and using a desktop OS may cause reliability issues with the display driver.
 - Use the gear icon to add extra settings to your install:
   - Add your WIFI credentials.
   - Set a hostname (e.g., `quotemachine.local`) and username/password (e.g., `pi@quotemachine.local/`) which will be used for connecting.
-  - Enable SSH. This is required so you can configure the typewriter remotely, without a traditional display.
+  - Enable SSH. This is required so you can configure the quote machine remotely without a traditional display.
 - Run the tool, and it will wipe the SD card and install the image.
 
-### 2. Establish SSH Connection
+### 3. Establish SSH Connection
 
 - Install the SD card in the Pi, and connect it to power. You should see blinking lights as it completes the first boot.
 - After a minute or so, open up Windows Power Shell, Terminal, or whatever command line tool you want to use.
 - Connect to your Pi Zero via:
   ```
-  ssh zero@zerowriter.local
+  ssh pi@quotemachine.local
   ```
-- Your computer will connect to the Pi Zero and do some security stuff—if you have errors here, there's usually an easy fix if you google it.
-- You will connect and be greeted with the Pi Zero's command line.
+Your computer will connect to the Pi Zero and do some security stuff like ask for your password. If you have errors here, there's usually an easy fix if you Google it.
+
+If the OS was installed correctly, you will connect and be greeted with the Pi Zero's command line.
 
 ### 3. Configure Via SSH
 
-Follow these commands in order to set up the quote machine with the files it needs to run the program:
+Follow these commands to set up the quote machine with the files it needs to run the program:
 ```
 sudo apt update
 sudo apt full-upgrade
