@@ -60,9 +60,10 @@ sudo apt full-upgrade
 ```
 
 #### Turn on SPI (which allows the Pi to use the display)
+```
 sudo raspi-config
 Interfacing Options -> SPI -> Enable
-
+```
 #### Install dependencies:
 ```
 sudo apt-get install python3-pip python3-pil python3-numpy git
@@ -90,10 +91,10 @@ python ~/dailyquotemachine/quotemachine.py
 ```
 sudo nano /etc/systemd/system/quotemachine.service
 ```
-#### Copy and paste the following into the service configuration file and change any settings to match your environment:
+#### Copy and paste the following into the service configuration file and change any settings to match your environment ('pi' should be replaced with user name):
 ```
 [Unit]
-Description=QuoteMachine
+Description=Quote Machine Service
 After=network.target
 
 [Service]
@@ -107,7 +108,10 @@ User=pi
 [Install]
 WantedBy=multi-user.target
 ```
-
+#### Reload the systemd manager configuration to apply the new service:
+```
+sudo systemctl daemon-reload
+```
 #### Enable the service so that it starts whenever the RPi is rebooted:
 ```
 sudo systemctl enable quotemachine.service
@@ -120,7 +124,7 @@ sudo systemctl start quotemachine.service
 
 If you need to troubleshoot, you can use the logging configurations of this program (mentioned below). Alternatively, you can check to see if there is any output in the system service logging:
 ```
-sudo journalctl -f -u quotemachine.service
+sudo systemctl status quotemachine.service
 ```
 
 ### Optional: Install SMB for File Access
